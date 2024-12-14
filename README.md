@@ -1,12 +1,15 @@
+## Parametarski efikasno podešavanje jezičkog modela za detekciju pretnji nasiljem u tekstu
+
 Cilj ovog rada je da istraži kako modeli obrade prirodnog jezika (NLP, eng. Natural
 Language Processing), zasnovani na savremenim metodama poput transformera i mehanizma
 pažnje (eng. attention), mogu pomoći u prepoznavanju ’’nasilnog govora’’. Specifično u
 kombinaciji sa parametarski efikasnim finim podešavanjem tehnikama LoRA (eng. Low-Rank
 Adaptation of Large Language Models) i QLoRA (eng. Quantized Low-Rank Adaptation).
+
 U ono što model treba da detektuje spadaju:
-• Pretnje fizičkim nasiljem
-• Pretnje ubistvom
-• Nagovaranje na fizičko nasilje
+-  Pretnje fizičkim nasiljem
+-  Pretnje ubistvom
+-  Nagovaranje na fizičko nasilje
 • Nagovaranje na samoubistvo
 • Nagovaranje na samo povređivanje
 A izuzetci koje model treba da klasifikuje kao ’’normalan govor’’:
