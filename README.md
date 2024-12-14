@@ -22,7 +22,7 @@ Teži primeri za klasifikaciju uključuju primere vezane za:
 pretnje upućuju igračima u igrici.
 - Ostali specifični kontekti poput religijskog, pravnog i slično..
 
-# ASL - American Sign Language Classification
+# izbor modela, tokenizacija
  - Im working on classification of 5 signs: 'V', 'Y', 'X', 'Y', 'Z'. Initially dataset pictures look like this:
 
 <img src="Pictures/signs1.PNG" alt="Alt Text" width="512" height="256">
