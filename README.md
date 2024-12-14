@@ -1,5 +1,25 @@
-# Text-Classification-Death-Threats
-This project leverages the BERTic checkpoint, based on BERT-base (110M parameters), to classify text in Serbian for the presence of physical violence threats, death threats, incitement to physical violence, or suicide encouragement.
+## Cilj Projekta
+
+Cilj ovog rada je da istraži kako modeli obrade prirodnog jezika (NLP, eng. Natural Language Processing), zasnovani na savremenim metodama poput transformera i mehanizma pažnje (eng. attention), mogu pomoći u prepoznavanju "nasilnog govora". Specifično, istražuje kombinaciju ovih tehnika sa parametarski efikasnim finim podešavanjem metodama kao što su LoRA (eng. Low-Rank Adaptation of Large Language Models) i QLoRA (eng. Quantized Low-Rank Adaptation).
+
+### Detekcija
+Model je dizajniran da detektuje sledeće:
+- Pretnje fizičkim nasiljem
+- Pretnje ubistvom
+- Nagovaranje na fizičko nasilje
+- Nagovaranje na samoubistvo
+- Nagovaranje na samopovređivanje
+
+### Izuzeci klasifikovani kao "normalan govor"
+Model treba da klasifikuje sledeće kao normalan govor, bez oznake nasilja:
+- Pretnje samoubistvom – ideja je da su ovo pre pozivi za pomoć nego pretnje nasiljem. Ovo uključuje i molbe za pomoć pri samoubistvu i slično.
+- Pretnje samopovređivanjem
+
+### Teži primeri za klasifikaciju
+Složeni primeri uključuju kontekste kao što su:
+- **"Gaming context"** – Zadatak je otežan dodavanjem primera u kojima model treba da prepozna da se pretnje upućuju igračima u okviru igre.
+- Ostali specifični konteksti, poput religijskog, pravnog i sličnog.
+
 
 # ASL - American Sign Language Classification
  - Im working on classification of 5 signs: 'V', 'Y', 'X', 'Y', 'Z'. Initially dataset pictures look like this:
