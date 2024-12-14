@@ -1,20 +1,22 @@
-## Cilj Projekta
-
-Cilj ovog rada je da istraži kako modeli obrade prirodnog jezika (NLP, eng. Natural Language Processing), zasnovani na savremenim metodama poput transformera i mehanizma pažnje (eng. attention), mogu pomoći u prepoznavanju "nasilnog govora". Specifično, istražuje kombinaciju ovih tehnika sa parametarski efikasnim finim podešavanjem metodama kao što su LoRA (eng. Low-Rank Adaptation of Large Language Models) i QLoRA (eng. Quantized Low-Rank Adaptation).
-
-### Detekcija
-Model je dizajniran da detektuje sledeće:
-- Pretnje fizičkim nasiljem
-- Pretnje ubistvom
-- Nagovaranje na fizičko nasilje
-- Nagovaranje na samoubistvo
-- Nagovaranje na samopovređivanje
-
-### Izuzeci klasifikovani kao "normalan govor"
-Model treba da klasifikuje sledeće kao normalan govor, bez oznake nasilja:
-- Pretnje samoubistvom – ideja je da su ovo pre pozivi za pomoć nego pretnje nasiljem. Ovo uključuje i molbe za pomoć pri samoubistvu i slično.
-- Pretnje samopovređivanjem
-
+Cilj ovog rada je da istraži kako modeli obrade prirodnog jezika (NLP, eng. Natural
+Language Processing), zasnovani na savremenim metodama poput transformera i mehanizma
+pažnje (eng. attention), mogu pomoći u prepoznavanju ’’nasilnog govora’’. Specifično u
+kombinaciji sa parametarski efikasnim finim podešavanjem tehnikama LoRA (eng. Low-Rank
+Adaptation of Large Language Models) i QLoRA (eng. Quantized Low-Rank Adaptation).
+U ono što model treba da detektuje spadaju:
+• Pretnje fizičkim nasiljem
+• Pretnje ubistvom
+• Nagovaranje na fizičko nasilje
+• Nagovaranje na samoubistvo
+• Nagovaranje na samo povređivanje
+A izuzetci koje model treba da klasifikuje kao ’’normalan govor’’:
+• Pretnje samoubistvom – ideja je da ovo više poziv za pomoć nego bilo kakva pretnja
+nasiljem, takođe ovde spadaju molbe za pomoć pri samoubistvo i slično
+• Pretnje samopovređivanjem
+Teži primeri za klasifikaciju uključuju primere vezane za:
+• ’’Geming contex’’, Ovo je dodato da se zadatak oteža, model treba da prepozna da se
+pretnje upućuju igračima u igrici.
+• Ostali specifični kontekti poput religijskog, pravnog i slično..
 ### Teži primeri za klasifikaciju
 Složeni primeri uključuju kontekste kao što su:
 - **"Gaming context"** – Zadatak je otežan dodavanjem primera u kojima model treba da prepozna da se pretnje upućuju igračima u okviru igre.
