@@ -10,21 +10,18 @@ U ono što model treba da detektuje spadaju:
 -  Pretnje fizičkim nasiljem
 -  Pretnje ubistvom
 -  Nagovaranje na fizičko nasilje
-• Nagovaranje na samoubistvo
-• Nagovaranje na samo povređivanje
+- Nagovaranje na samoubistvo
+   Nagovaranje na samo povređivanje
+  
 A izuzetci koje model treba da klasifikuje kao ’’normalan govor’’:
-• Pretnje samoubistvom – ideja je da ovo više poziv za pomoć nego bilo kakva pretnja
+- Pretnje samoubistvom – ideja je da ovo više poziv za pomoć nego bilo kakva pretnja
 nasiljem, takođe ovde spadaju molbe za pomoć pri samoubistvo i slično
-• Pretnje samopovređivanjem
+- Pretnje samopovređivanjem
+- 
 Teži primeri za klasifikaciju uključuju primere vezane za:
-• ’’Geming contex’’, Ovo je dodato da se zadatak oteža, model treba da prepozna da se
+- ’’Geming contex’’, Ovo je dodato da se zadatak oteža, model treba da prepozna da se
 pretnje upućuju igračima u igrici.
-• Ostali specifični kontekti poput religijskog, pravnog i slično..
-### Teži primeri za klasifikaciju
-Složeni primeri uključuju kontekste kao što su:
-- **"Gaming context"** – Zadatak je otežan dodavanjem primera u kojima model treba da prepozna da se pretnje upućuju igračima u okviru igre.
-- Ostali specifični konteksti, poput religijskog, pravnog i sličnog.
-
+- Ostali specifični kontekti poput religijskog, pravnog i slično..
 
 # ASL - American Sign Language Classification
  - Im working on classification of 5 signs: 'V', 'Y', 'X', 'Y', 'Z'. Initially dataset pictures look like this:
