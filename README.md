@@ -23,9 +23,9 @@ pretnje upućuju igračima u igrici.
 - Ostali specifični kontekti poput religijskog, pravnog i slično..
 
 # izbor modela, tokenizacija
- - Im working on classification of 5 signs: 'V', 'Y', 'X', 'Y', 'Z'. Initially dataset pictures look like this:
+ - upoređivanjem tokenizatora razlicitih modela odabrao sam bertic (checkpoint_name = "classla/bcms-bertic")
 
-<img src="Pictures/signs1.PNG" alt="Alt Text" width="512" height="256">
+<img src="Slike/vocab.PNG" alt="Alt Text" width="512" height="256">
 
 - Pictures are RGB and 200*200 in size.
 
