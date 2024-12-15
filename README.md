@@ -25,7 +25,7 @@ pretnje upućuju igračima u igrici.
 # izbor modela, tokenizacija
  - upoređivanjem tokenizatora razlicitih modela odabrao sam bertic (checkpoint_name = "classla/bcms-bertic")
 
-<img src="Slike/vocab.PNG" alt="Alt Text" width="512" height="256">
+<img src="Slike/vocab.png" alt="Alt Text" width="512" height="256">
 
 - Pictures are RGB and 200*200 in size.
 
