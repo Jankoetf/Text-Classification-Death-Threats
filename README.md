@@ -28,14 +28,19 @@ pretnje upućuju igračima u igrici.
 <img src="Slike/vocab.png" alt="Alt Text" width="512" height="256">
 
 # Kreiranje dataset-a
-- Ručno
-- Parafraziranje pomoću modela GPT-4o preko OPEN API
-- Umetanje šuma dodavanjenje najčešćih slovnih grešaka
+Ručno, Parafraziranje pomoću modela GPT-4o preko OPEN API, Umetanje šuma dodavanjenje najčešćih slovnih grešaka
+
+- Parafraziranje istog ručno kreiranog teksta za različite vrednosti temperature odgovora:
+
+<img src="Slike/para.png" alt="Alt Text" width="512" height="300">
+
+- Fino podešeni prompt za parafraziranje:
 
 <img src="Slike/prompt.png" alt="Alt Text" width="700" height="128">
 
+- dodavanje šuma slovnih grešaka:
 
-
+<img src="Slike/typo.png" alt="Alt Text" width="512" height="400">
 
 # Fino podešavanje
 U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA matrice za fino podešavanje, mesta na kojima su dodavane LoRA matrice kao i njihov rank je fino podešen za dodatnu uštedu resursa uz minimalni gubitak na performansama:
@@ -52,6 +57,9 @@ U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA mat
 
 <img src="Slike/lora.png" alt="prompt za parafraziranje" width="512" height="600">
 
+- fino podešavanje ostalih hyperparametara:
+
+<img src="Slike/hyper.png" alt="prompt za parafraziranje" width="512" height="400">
 
 
 
@@ -74,7 +82,47 @@ Here are examples of filtered images:
 - Using adaptive tresholding on Gaussian and Median Blur
 <img src="Pictures/c4.PNG" alt="Alt Text" width="512" height="256">
 
+<p>
+    <img src="Pictures/Ford%20Furkenson/s1.PNG" alt="Alt Text" width="388" height="256" alt> 
+</p>
 
+- First Iteration
+<p>
+    <img src="Pictures/Ford%20Furkenson/s2.PNG" alt="Alt Text" width="388" height="256" alt> 
+    <img src="Pictures/Ford%20Furkenson/s3.PNG" alt="Alt Text" width="388" height="256" alt> 
+</p>
+
+- Second Iteration
+<p>
+    <img src="Pictures/Ford%20Furkenson/s4.PNG" alt="Alt Text" width="388" height="256" alt> 
+    <img src="Pictures/Ford%20Furkenson/s5.PNG" alt="Alt Text" width="388" height="256" alt> 
+</p>
+On this specific example we get that maximum 2 workers can get a job.
+
+
+# 2. Comparing DFS, BFS, A* on labyrinth problem
+[Labyrinth.py](https://github.com/Jankoetf/GraphTheoryByMe/blob/main/lavirint.py)
+
+-  Simulation Results:
+
+| Labyrinth          | DFS | BFS | A*  |
+|--------------------|-----|-----|-----|
+| small regular      | 30  | 21  | 13 |
+| small no path      | 18  | 9   |  8 |
+| big many obstacles | 89  | 93  | 28 |
+| small empty        | 895 | 154 |  9 |
+
+- start is represented as 304, end with 707
+-  1 means obstacle, 0 means no obstacle
+
+<p>
+    <em>Small Regular Labyrinth</em> <img src="Pictures/Lavirint/regular.PNG" alt="Alt Text" width="228" height="126" alt> 
+    <em>Labyrinth without Path</em> <img src="Pictures/Lavirint/no.PNG" alt="Alt Text" width="228" height="126" alt>
+</p>
+<p>
+    <em>Big Labyrint</em> <img src="Pictures/Lavirint/big.PNG" alt="Alt Text" width="228" height="126" alt>
+    <em>Small empty labyrinth</em> <img src="Pictures/Lavirint/empty.PNG" alt="Alt Text" width="228" height="126" alt>
+</p>
 ## Fitting Sections
 When I just preproces whole train and test set with one of these filters and fit model, I dont get much of improvement.
 My strategy is:
