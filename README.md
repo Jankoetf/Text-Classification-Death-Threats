@@ -27,6 +27,16 @@ pretnje upućuju igračima u igrici.
 
 <img src="Slike/vocab.png" alt="Alt Text" width="512" height="256">
 
+# Kreiranje dataset-a
+- Ručno
+- Parafraziranje pomoću modela GPT-4o preko OPEN API
+- Umetanje šuma dodavanjenje najčešćih slovnih grešaka
+
+<img src="Slike/prompt.png" alt="Alt Text" width="700" height="128">
+
+
+
+
 # Fino podešavanje
 U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA matrice za fino podešavanje, mesta na kojima su dodavane LoRA matrice kao i njihov rank je fino podešen za dodatnu uštedu resursa uz minimalni gubitak na performansama:
 
@@ -40,7 +50,7 @@ U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA mat
 
 - fino podešavanje odnosa LoRA rank-a i LoRA skalirajućeg faktora
 
-<img src="Slike/lora.png" alt="Alt Text" width="512" height="600">
+<img src="Slike/lora.png" alt="prompt za parafraziranje" width="512" height="600">
 
 
 
