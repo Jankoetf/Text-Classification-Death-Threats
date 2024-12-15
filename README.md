@@ -1,4 +1,4 @@
-## Parametarski efikasno podešavanje jezičkog modela za detekciju pretnji fizičkim nasiljem u tekstu
+# Parametarski efikasno podešavanje jezičkog modela za detekciju pretnji fizičkim nasiljem u tekstu
 
 Cilj ovog rada je da istraži kako modeli obrade prirodnog jezika (NLP, eng. Natural
 Language Processing), zasnovani na savremenim metodama poput transformera i mehanizma
@@ -22,14 +22,14 @@ Teži primeri za klasifikaciju uključuju primere vezane za:
 pretnje upućuju igračima u igrici.
 - Ostali specifični kontekti poput religijskog, pravnog i slično..
 
-# izbor modela, tokenizacija
+## izbor modela, tokenizacija
  - upoređivanjem tokenizatora razlicitih modela odabrao sam bertic (checkpoint_name = "classla/bcms-bertic")
 
 🐍[Tokenizatori](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/BertAnalysis.ipynb)
 
 <img src="Slike/vocab.png" alt="Alt Text" width="512" height="256">
 
-# Kreiranje dataset-a
+## Kreiranje dataset-a
 Ručno, Parafraziranje pomoću modela GPT-4o preko OPEN API, Umetanje šuma dodavanjenje najčešćih slovnih grešaka
 
 - Parafraziranje istog ručno kreiranog teksta za različite vrednosti temperature odgovora:
@@ -46,7 +46,7 @@ Ručno, Parafraziranje pomoću modela GPT-4o preko OPEN API, Umetanje šuma doda
 
 <img src="Slike/typo.png" alt="Alt Text" width="512" height="400">
 
-# Fino podešavanje
+## Fino podešavanje
 U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA matrice za fino podešavanje, mesta na kojima su dodavane LoRA matrice kao i njihov rank je fino podešen za dodatnu uštedu resursa uz minimalni gubitak na performansama:
 
 🐍[Fino Podešavanje](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/FineTunningBertic.ipynb)
@@ -67,13 +67,13 @@ U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA mat
 
 <img src="Slike/hyper.png" alt="prompt za parafraziranje" width="512" height="300">
 
-# Konačni rezultati
+## Konačni rezultati
 
 <img src="Slike/final.png" alt="prompt za parafraziranje" width="300" height="300">
 
-# Analiza sličnih modela
+## Analiza sličnih modela
 
 🐍[Facebook roBERTa](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/Facebook_RoBerta.ipynb)
 
-## **Thank you for exploring my project!** 
+### **Thank you for exploring my project!** 
 If you'd like to learn more about my background and qualifications, please visit my [LinkedIn profile](https://www.linkedin.com/in/jankomitrovic)
