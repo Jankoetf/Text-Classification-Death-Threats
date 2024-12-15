@@ -73,7 +73,7 @@ U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA mat
 
 # Analiza sličnih modela
 
-🐍[Fino Podešavanje](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/Facebook_RoBerta.ipynb)
+🐍[Facebook roBERTa](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/Facebook_RoBerta.ipynb)
 
 ## **Thank you for exploring my project!** 
 If you'd like to learn more about my background and qualifications, please visit my [LinkedIn profile](https://www.linkedin.com/in/jankomitrovic)
