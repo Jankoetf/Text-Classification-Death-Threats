@@ -1,4 +1,4 @@
-## Parametarski efikasno podešavanje jezičkog modela za detekciju pretnji nasiljem u tekstu
+## Parametarski efikasno podešavanje jezičkog modela za detekciju pretnji fizičkim nasiljem u tekstu
 
 Cilj ovog rada je da istraži kako modeli obrade prirodnog jezika (NLP, eng. Natural
 Language Processing), zasnovani na savremenim metodama poput transformera i mehanizma
@@ -27,15 +27,21 @@ pretnje upućuju igračima u igrici.
 
 <img src="Slike/vocab.png" alt="Alt Text" width="512" height="256">
 
-- Pictures are RGB and 200*200 in size.
+# Fino podešavanje
+U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA matrice za fino podešavanje, mesta na kojima su dodavane LoRA matrice kao i njihov rank je fino podešen za dodatnu uštedu resursa uz minimalni gubitak na performansama:
 
-If I just make and train a classification model I get accuracy around 70%(Pictures are already augmented).
+- Kvantizacija kao metoda regularizacije:
 
-<img src="Pictures/start_pred.PNG" alt="Alt Text" width="342" height="378">
+<img src="Slike/quant.png" alt="Alt Text" width="512" height="384">
 
-- Before filtering, datasets are resized to 64*64 and loaded as 1 channel images(grayscale).
+- Uticaj broja slojeva na koje se dodaju LoRA matrice na performanse:
 
-<img src="Pictures/start2.PNG" alt="Alt Text" width="512" height="256">
+<img src="Slike/sloj.png" alt="Alt Text" width="512" height="640">
+
+- fino podešavanje odnosa LoRA rank-a i LoRA skalirajućeg faktora
+
+<img src="Slike/lora.png" alt="Alt Text" width="512" height="896">
+
 
 
 
