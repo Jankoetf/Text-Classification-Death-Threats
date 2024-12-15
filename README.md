@@ -24,6 +24,7 @@ pretnje upućuju igračima u igrici.
 
 # izbor modela, tokenizacija
  - upoređivanjem tokenizatora razlicitih modela odabrao sam bertic (checkpoint_name = "classla/bcms-bertic")
+
 🐍[Tokenizatori](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/BertAnalysis.ipynb)
 
 <img src="Slike/vocab.png" alt="Alt Text" width="512" height="256">
@@ -32,6 +33,7 @@ pretnje upućuju igračima u igrici.
 Ručno, Parafraziranje pomoću modela GPT-4o preko OPEN API, Umetanje šuma dodavanjenje najčešćih slovnih grešaka
 
 - Parafraziranje istog ručno kreiranog teksta za različite vrednosti temperature odgovora:
+
 🐍[Kreiranje Dataset-a](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/FineTunningBertic.ipynb)
 
 <img src="Slike/para.png" alt="Alt Text" width="512" height="300">
@@ -46,6 +48,7 @@ Ručno, Parafraziranje pomoću modela GPT-4o preko OPEN API, Umetanje šuma doda
 
 # Fino podešavanje
 U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA matrice za fino podešavanje, mesta na kojima su dodavane LoRA matrice kao i njihov rank je fino podešen za dodatnu uštedu resursa uz minimalni gubitak na performansama:
+
 🐍[Fino Podešavanje](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/FineTunningBertic.ipynb)
 
 - Kvantizacija kao metoda regularizacije:
