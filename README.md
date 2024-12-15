@@ -32,15 +32,15 @@ U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA mat
 
 - Kvantizacija kao metoda regularizacije:
 
-<img src="Slike/quant.png" alt="Alt Text" width="512" height="384">
+<img src="Slike/quant.png" alt="Alt Text" width="512" height="300">
 
 - Uticaj broja slojeva na koje se dodaju LoRA matrice na performanse:
 
-<img src="Slike/sloj.png" alt="Alt Text" width="512" height="640">
+<img src="Slike/sloj.png" alt="Alt Text" width="512" height="420">
 
 - fino podešavanje odnosa LoRA rank-a i LoRA skalirajućeg faktora
 
-<img src="Slike/lora.png" alt="Alt Text" width="512" height="896">
+<img src="Slike/lora.png" alt="Alt Text" width="512" height="600">
 
 
 
