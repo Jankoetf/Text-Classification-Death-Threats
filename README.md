@@ -34,7 +34,7 @@ Ručno, Parafraziranje pomoću modela GPT-4o preko OPEN API, Umetanje šuma doda
 
 - Parafraziranje istog ručno kreiranog teksta za različite vrednosti temperature odgovora:
 
-🐍[Kreiranje Dataset-a](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/FineTunningBertic.ipynb#Dataset Classes)
+🐍[Kreiranje Dataset-a](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/FineTunningBertic.ipynb#Dataset-Classes)
 
 <img src="Slike/para.png" alt="Alt Text" width="512" height="300">
 
