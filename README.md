@@ -65,11 +65,11 @@ U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA mat
 
 - fino podešavanje ostalih hyperparametara:
 
-<img src="Slike/hyper.png" alt="prompt za parafraziranje" width="512" height="400">
+<img src="Slike/hyper.png" alt="prompt za parafraziranje" width="512" height="300">
 
 # Konačni rezultati
 
-<img src="Slike/final.png" alt="prompt za parafraziranje" width="512" height="450">
+<img src="Slike/final.png" alt="prompt za parafraziranje" width="300" height="300">
 
 ## **Thank you for exploring my project!** 
 If you'd like to learn more about my background and qualifications, please visit my [LinkedIn profile](https://www.linkedin.com/in/jankomitrovic)
