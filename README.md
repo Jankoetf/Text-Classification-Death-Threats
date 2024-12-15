@@ -24,6 +24,7 @@ pretnje upućuju igračima u igrici.
 
 # izbor modela, tokenizacija
  - upoređivanjem tokenizatora razlicitih modela odabrao sam bertic (checkpoint_name = "classla/bcms-bertic")
+🐍[Tokenizatori](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/BertAnalysis.ipynb)
 
 <img src="Slike/vocab.png" alt="Alt Text" width="512" height="256">
 
@@ -31,6 +32,7 @@ pretnje upućuju igračima u igrici.
 Ručno, Parafraziranje pomoću modela GPT-4o preko OPEN API, Umetanje šuma dodavanjenje najčešćih slovnih grešaka
 
 - Parafraziranje istog ručno kreiranog teksta za različite vrednosti temperature odgovora:
+🐍[Kreiranje Dataset-a](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/FineTunningBertic.ipynb)
 
 <img src="Slike/para.png" alt="Alt Text" width="512" height="300">
 
@@ -44,6 +46,7 @@ Ručno, Parafraziranje pomoću modela GPT-4o preko OPEN API, Umetanje šuma doda
 
 # Fino podešavanje
 U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA matrice za fino podešavanje, mesta na kojima su dodavane LoRA matrice kao i njihov rank je fino podešen za dodatnu uštedu resursa uz minimalni gubitak na performansama:
+🐍[Fino Podešavanje](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/FineTunningBertic.ipynb)
 
 - Kvantizacija kao metoda regularizacije:
 
@@ -61,84 +64,9 @@ U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA mat
 
 <img src="Slike/hyper.png" alt="prompt za parafraziranje" width="512" height="400">
 
+# Konačni rezultati
 
-
-## Filtering Sections
-- Next I experimented with different digital image preprocessing filters in order to get that edge detection, in most cases order of operation is
-1. Bluring
-2. Edge detection
-3. Thresholding
-
-Here are examples of filtered images:
-- Manual sharpen and edge detection masks
-<img src="Pictures/c1.PNG" alt="Alt Text" width="512" height="256">
-
-- Canny filter + thresholding
-<img src="Pictures/c2.PNG" alt="Alt Text" width="512" height="256">
-
-- Sobel filter + thresholding
-<img src="Pictures/c3.PNG" alt="Alt Text" width="512" height="256">
-
-- Using adaptive tresholding on Gaussian and Median Blur
-<img src="Pictures/c4.PNG" alt="Alt Text" width="512" height="256">
-
-<p>
-    <img src="Pictures/Ford%20Furkenson/s1.PNG" alt="Alt Text" width="388" height="256" alt> 
-</p>
-
-- First Iteration
-<p>
-    <img src="Pictures/Ford%20Furkenson/s2.PNG" alt="Alt Text" width="388" height="256" alt> 
-    <img src="Pictures/Ford%20Furkenson/s3.PNG" alt="Alt Text" width="388" height="256" alt> 
-</p>
-
-- Second Iteration
-<p>
-    <img src="Pictures/Ford%20Furkenson/s4.PNG" alt="Alt Text" width="388" height="256" alt> 
-    <img src="Pictures/Ford%20Furkenson/s5.PNG" alt="Alt Text" width="388" height="256" alt> 
-</p>
-On this specific example we get that maximum 2 workers can get a job.
-
-
-# 2. Comparing DFS, BFS, A* on labyrinth problem
-[Labyrinth.py](https://github.com/Jankoetf/GraphTheoryByMe/blob/main/lavirint.py)
-
--  Simulation Results:
-
-| Labyrinth          | DFS | BFS | A*  |
-|--------------------|-----|-----|-----|
-| small regular      | 30  | 21  | 13 |
-| small no path      | 18  | 9   |  8 |
-| big many obstacles | 89  | 93  | 28 |
-| small empty        | 895 | 154 |  9 |
-
-- start is represented as 304, end with 707
--  1 means obstacle, 0 means no obstacle
-
-<p>
-    <em>Small Regular Labyrinth</em> <img src="Pictures/Lavirint/regular.PNG" alt="Alt Text" width="228" height="126" alt> 
-    <em>Labyrinth without Path</em> <img src="Pictures/Lavirint/no.PNG" alt="Alt Text" width="228" height="126" alt>
-</p>
-<p>
-    <em>Big Labyrint</em> <img src="Pictures/Lavirint/big.PNG" alt="Alt Text" width="228" height="126" alt>
-    <em>Small empty labyrinth</em> <img src="Pictures/Lavirint/empty.PNG" alt="Alt Text" width="228" height="126" alt>
-</p>
-## Fitting Sections
-When I just preproces whole train and test set with one of these filters and fit model, I dont get much of improvement.
-My strategy is:
-1. Loading whole train set
-2. Preprocessing it with one of best filter
-3. Creating a model
-4. Train the model for 10 epochs
-5. Preprocessing whole train set again using different filter
-6. Training an already trained model for 3 or 5 more epochs
-7. Repeat 5. 6. several times
-
-What I found is that filters that do adaptive thresholding on blured image, works the best in combination.
-With this aproach I imroved generalization of model, in the end of process I get accuracy around 80%.
-
-
-<img src="Pictures/last.PNG" alt="Alt Text" width="342" height="378">
+<img src="Slike/final.png" alt="prompt za parafraziranje" width="512" height="450">
 
 ## **Thank you for exploring my project!** 
 If you'd like to learn more about my background and qualifications, please visit my [LinkedIn profile](https://www.linkedin.com/in/jankomitrovic)
