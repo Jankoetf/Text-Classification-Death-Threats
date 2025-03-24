@@ -1,7 +1,7 @@
 import openai
 import pandas as pd
 import random
-from Dataset.keyboard_neighborhood import keyboard_neighborhood
+from DatasetManagment.keyboard_neighborhood import keyboard_neighborhood
 
 class DatasetAugmentation:
     def __init__(self, keyboard_neighborhood = keyboard_neighborhood, engine = "gpt-4o"):
