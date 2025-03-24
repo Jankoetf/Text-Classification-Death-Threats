@@ -1,0 +1,8 @@
+transformers
+torch
+openai==0.28
+peft
+accelerate
+bitsandbytes
+optuna
+pandas
