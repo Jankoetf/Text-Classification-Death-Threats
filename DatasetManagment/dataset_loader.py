@@ -2,8 +2,8 @@ import math
 import pandas as pd
 
 class DatasetLoader:
-    def __init__(self, tokenizer):
-        self.tokenizer = tokenizer
+    def __init__(self):
+        pass
 
     def add_all_sheets_from_all_files(self, path_file_names, list_of_sheet_names):
         output_dataset = []
@@ -12,10 +12,6 @@ class DatasetLoader:
                 output_dataset.extend(pd.read_excel(path_file_name, sheet_name=sheet_name).to_dict(orient='records'))
         self.check_if_classes_are_balanced(output_dataset)
         return output_dataset
-
-    def map_name_to_path(self, dataset_name):
-        path = "/content/" + dataset_name + ".xlsx"
-        return path
 
     def check_if_classes_are_balanced(self, dataset):
         examples_labels = {}
@@ -31,20 +27,16 @@ class DatasetLoader:
             print("!!!!!!!!!! not balanced")
             return False
 
-    @classmethod
-    def closest_power_of_2(cls, number):
+    @staticmethod
+    def closest_power_of_2(number):
        logarithm = math.ceil(math.log2(number))
        return 2 ** logarithm
 
-    def get_max_tokens(self, dataset):
+    @staticmethod
+    def get_max_tokens(dataset, tokenizer):
         max_tokens = 0
         for item in dataset:
-            tokenized_text = self.tokenizer.encode(item['text'], truncation = True)
+            tokenized_text = tokenizer.encode(item['text'], truncation = True)
             num_tokens = len(tokenized_text)
             max_tokens = max(max_tokens, num_tokens)
         return max_tokens
-
-    def filter_duplicates(self, original_dataset_path, new_file_name):
-        df = pd.read_excel(original_dataset_path, sheet_name = "All")
-        df_cleaned = df.drop_duplicates(subset=['text'])
-        df_cleaned.to_excel(new_file_name + ".xlsx", sheet_name = "All", index=False)
