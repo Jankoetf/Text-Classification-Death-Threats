@@ -8,3 +8,4 @@ optuna
 pandas
 python-dotenv
 ipykernel
+openpyxl
