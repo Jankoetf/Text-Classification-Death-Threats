@@ -6,3 +6,5 @@ accelerate
 bitsandbytes
 optuna
 pandas
+python-dotenv
+ipykernel
