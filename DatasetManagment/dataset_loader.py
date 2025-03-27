@@ -1,9 +1,11 @@
 import math
 import pandas as pd
 
+from DatasetManagment.dataset_const import (TEST_DATASETS_ROOT, DATASETS_ROOT)
+
 class DatasetLoader:
-    def __init__(self):
-        pass
+    def __init__(self, root_relative_path = TEST_DATASETS_ROOT):
+        self.root_relative_path = root_relative_path
 
     def add_all_sheets_from_all_files(self, path_file_names, list_of_sheet_names):
         output_dataset = []
@@ -26,6 +28,9 @@ class DatasetLoader:
         else:
             print("!!!!!!!!!! not balanced")
             return False
+    
+    def path_from_name(self, dataset_name):
+        return self.root_relative_path + dataset_name + ".xlsx"
 
     @staticmethod
     def closest_power_of_2(number):
@@ -40,3 +45,5 @@ class DatasetLoader:
             num_tokens = len(tokenized_text)
             max_tokens = max(max_tokens, num_tokens)
         return max_tokens
+    
+
