@@ -1,3 +1,4 @@
+"""This should simulate frequevent typos when using keyboard"""
 keyboard_neighborhood = {
     '1': ['`', '2', 'q'],
     '2': ['1', '3', 'q', 'w'],

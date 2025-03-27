@@ -6,6 +6,11 @@ from DatasetManagment.keyboard_neighborhood import keyboard_neighborhood
 from DatasetManagment.dataset_const import (TEST_DATASETS_ROOT, DATASETS_ROOT)
 
 class DatasetAugmentation:
+    """
+    A class for augmenting datasets through paraphrasing and noise injection.
+    
+    This class utilizes the OpenAI API to paraphrase sentences and adds typographical errors to simulate noise
+    """
     def __init__(self, keyboard_neighborhood = keyboard_neighborhood, engine = "gpt-4o", root_relative_path = TEST_DATASETS_ROOT):
         self.engine = engine
         self.keyboard_neighborhood = keyboard_neighborhood
@@ -47,6 +52,12 @@ class DatasetAugmentation:
         return new_prompt
 
     def new_dataset_by_paraphrazing(self, original_dataset, new_dataset_name, hyperparams = None):
+        """
+        Create a new dataset by paraphrasing sentences from the original dataset.
+
+        For each sentence in the original dataset, the method generates multiple paraphrased versions
+        using various temperature settings, and saves the new dataset to an Excel file.
+        """
         texts, labels = [], []
         if hyperparams == None:
             n_responses_per_request = 2
@@ -76,6 +87,18 @@ class DatasetAugmentation:
         df.to_excel(self.path_from_name(new_dataset_name), sheet_name=self.sheet_name_default, index=False)
 
     def add_typo(self, original_text, typo_prob = 0.03):
+        """
+        Introduce typographical errors into the original text.
+
+        Each character in the text has a probability (typo_prob) of being replaced with a neighboring key.
+
+        Args:
+            original_text (str): The text to which typos will be added.
+            typo_prob (float): The probability for each character to be replaced by a typo.
+
+        Returns:
+            tuple: A tuple containing the new text with typos and the count of typos added.
+        """
         typos_count = 0
         new_text = []
         for char in original_text:
@@ -104,6 +127,12 @@ class DatasetAugmentation:
         return ''.join(new_text), typos_count
 
     def new_dataset_by_adding_noise(self, original_dataset, new_file_name):
+        """
+        Create a new dataset by adding typographical noise to some texts in the original dataset.
+
+        With a certain probability, a sentence will have typos introduced and the noisy version
+        will be added to the new dataset. The dataset is saved as an Excel file.
+        """
         add_noise_prob = 0.1
         texts, labels = [], []
         for item in original_dataset:
