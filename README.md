@@ -1,79 +1,83 @@
-# Parametarski efikasno podešavanje jezičkog modela za detekciju pretnji fizičkim nasiljem u tekstu
+# Parameter-Efficient Fine-Tuning of a Language Model for Detecting Threats of Physical Violence in Text
 
-Cilj ovog rada je da istraži kako modeli obrade prirodnog jezika (NLP, eng. Natural
-Language Processing), zasnovani na savremenim metodama poput transformera i mehanizma
-pažnje (eng. attention), mogu pomoći u prepoznavanju ’’nasilnog govora’’. Specifično u
-kombinaciji sa parametarski efikasnim finim podešavanjem tehnikama LoRA (eng. Low-Rank
-Adaptation of Large Language Models) i QLoRA (eng. Quantized Low-Rank Adaptation).
+The aim of this work is to explore how Natural Language Processing (NLP) models based on modern methods such as transformers and attention mechanisms - can help identify "violent speech". Specifically, it combines parameter-efficient fine-tuning techniques such as LoRA (Low-Rank Adaptation of Large Language Models) and QLoRA (Quantized Low-Rank Adaptation).
 
-U ono što model treba da detektuje spadaju:
--  Pretnje fizičkim nasiljem
--  Pretnje ubistvom
--  Nagovaranje na fizičko nasilje
-- Nagovaranje na samoubistvo
-- Nagovaranje na samo povređivanje
-  
-A izuzetci koje model treba da klasifikuje kao ’’normalan govor’’:
-- Pretnje samoubistvom – ideja je da ovo više poziv za pomoć nego bilo kakva pretnja
-nasiljem, takođe ovde spadaju molbe za pomoć pri samoubistvo i slično
-- Pretnje samopovređivanjem
-Teži primeri za klasifikaciju uključuju primere vezane za:
-- ’’Geming contex’’, Ovo je dodato da se zadatak oteža, model treba da prepozna da se
-pretnje upućuju igračima u igrici.
-- Ostali specifični kontekti poput religijskog, pravnog i slično..
+The model is designed to detect:
 
-## izbor modela, tokenizacija
- - upoređivanjem tokenizatora razlicitih modela odabrao sam bertic (checkpoint_name = "classla/bcms-bertic")
+- Threats of physical violence
+- Threats of murder
+- Physical violence persuasions
+- Suicide persuasions
+- Self-harm persuasions
 
-🐍[Tokenizatori](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/BertAnalysis.ipynb)
+Exceptions that the model should classify as "normal speech":
 
-<img src="Slike/vocab.png" alt="Alt Text" width="512" height="256">
+- Suicide threats – these are interpreted more as a cry for help than as genuine threats of violence; this category also includes please for help regarding suicide, etc.
+- Self-harm threats
 
-## Kreiranje dataset-a
-Ručno, Parafraziranje pomoću modela GPT-4o preko OPEN API, Umetanje šuma dodavanjenje najčešćih slovnih grešaka
+More challenging examples for classification include cases related to:
 
-- Parafraziranje istog ručno kreiranog teksta za različite vrednosti temperature odgovora:
+- **Gaming context:** This was added to increase the difficulty of the task, requiring the model to recognize that threats are directed at players in a game.
+- Other specific contexts such as religious, legal, etc.
 
-🐍[Kreiranje Dataset-a](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/FineTunningBertic.ipynb)
+## Project Structure
 
-<img src="Slike/para.png" alt="Alt Text" width="512" height="300">
+**Text-Classification-Death-Threats/**<br>
+├── [**DatasetManagment/**](./DatasetManagment/) # datasets and scripts for loading and augmentation<br>
+│ ├── [DatasetResources/](./DatasetManagment/DatasetResources) # datasets<br>
+│ ├── [dataset_loader.py](./DatasetManagment/dataset_loader.py) # loading datasets<br>
+│ ├── [keyboard_neighborhood.py](./DatasetManagment/keyboard_neighborhood.py) # simulating typos<br>
+│ ├── [**augmentation.py**](./DatasetManagment/augmentation.py) # augmentation class<br>
+│ └── [dataset_const.py](./DatasetManagment/dataset_const.py) # constants <br>
+├── [Tests/](./Tests/) # Tests<br>
+│ └── [test_api_key.py](./Tests/test_api_key.py) - # Testing OpenAI API requests<br>
+├── [BertAnalysis.ipynb](./BertAnalysis.ipynb) # Comparing Vocabularies of different Bert models<br>
+├── [CreatingDatasetsExample.ipynb](./CreatingDatasetsExample.ipynb) # Augmentation notebook <br>
+├── [**FineTunningBertic.ipynb**](./FineTunningBertic.ipynb) # main notebook, fine-tuning of BERT model <br>
+├── [BiasCheck.ipynb](./BiasCheck.ipynb) # Hate speech analysis notebook <br>
+├── PresentationResources/ # Project presentation materials<br>
+├── [.gitignore](./.gitignore) # Git exclusions<br>
+├── [requirements.txt](./requirements.txt) # Project dependencies<br>
+├── [.env.example](./.env) # example of .env file<br>
+├── [GraduationThesis.pdf](./GraduationThesis.pdf) # Graduation Thesis (Serbian)<br>
+└── README.md # Project documentation<br>
 
-- Fino podešeni prompt za parafraziranje:
+## Model Selection and Tokenization
 
-<img src="Slike/prompt.png" alt="Alt Text" width="700" height="128">
+- By comparing the tokenizers of various models, I chose Bertic (checkpoint_name = "classla/bcms-bertic").
 
-- dodavanje šuma slovnih grešaka:
+🐍[ComparingVocabularies notebook](BertAnalysis.ipynb)
 
-<img src="Slike/typo.png" alt="Alt Text" width="512" height="400">
+## Overview
 
-## Fino podešavanje
-U cilju uštede na računarskim resursima korišćena je kvantizacija i LoRA matrice za fino podešavanje, mesta na kojima su dodavane LoRA matrice kao i njihov rank je fino podešen za dodatnu uštedu resursa uz minimalni gubitak na performansama:
+### Creating the Dataset
 
-🐍[Fino Podešavanje](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/FineTunningBertic.ipynb)
+- Manually crated data
+- paraphrasing using the GPT-4 model via the OPEN API for different response temperature values
+- noise injection by adding common typographical errors.
 
-- Kvantizacija kao metoda regularizacije:
+🐍[Creating the Dataset notebook](CreatingDatasetsExample.ipynb)
 
-<img src="Slike/quant.png" alt="Alt Text" width="512" height="220">
+### **Fine-Tuning**
 
-- Uticaj broja slojeva na koje se dodaju LoRA matrice na performanse:
+To save computational resources, quantization and LoRA matrices were used for fine-tuning. The positions where the LoRA matrices are added, as well as their rank, were carefully adjusted to achieve additional resource savings with minimal performance loss:
 
-<img src="Slike/sloj.png" alt="Alt Text" width="512" height="280">
+🐍[Fine-Tuning notebook](FineTunningBertic.ipynb)
 
-- fino podešavanje odnosa LoRA rank-a i LoRA skalirajućeg faktora
+- Investigating quantization as a regularization method
+- Explored optimal configurations by experimenting with the balance between LoRA rank
+  and LoRA scaling factor, and determined the best transformer layers and positions for integrating LoRA matrices.
+- Explored the balance between resource utilization and
+  performance by varying the size and number of LoRA matrices
 
-<img src="Slike/lora.png" alt="prompt za parafraziranje" width="512" height="420">
+### Hate speech analysis
 
-- fino podešavanje ostalih hyperparametara:
+Exploring Political Bias related to Hate Speech Detection Models
 
-<img src="Slike/hyper.png" alt="prompt za parafraziranje" width="512" height="300">
+🐍[Hate Speech Analysis noteboook](BiasCheck.ipynb)
 
-## Konačni rezultati
+<br><br><br>
 
-<img src="Slike/final.png" alt="prompt za parafraziranje" width="300" height="300">
+### **Thank you for exploring my project!**
 
-## Analiza sličnih modela
-
-🐍[Facebook roBERTa](https://github.com/Jankoetf/Text-Classification-Death-Threats/blob/main/Facebook_RoBerta.ipynb)
-
-### **Thank you for exploring my project!** 
 If you'd like to learn more about my background and qualifications, please visit my [LinkedIn profile](https://www.linkedin.com/in/jankomitrovic)
